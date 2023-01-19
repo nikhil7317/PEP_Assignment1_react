@@ -1,25 +1,32 @@
-import logo from './logo.svg';
+
+
 import './App.css';
+import Welcome from './component/welcome';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import React, { Component } from 'react';
 
-export default App;
+
+
+class App extends Component {  
+  
+  state={data:""}
+
+  changeState = () => {  
+    let name=document.getElementById("name").value;
+    this.setState({data:name}); 
+       }; 
+
+  render(){   
+      return (     
+          <div className="App">  
+          <p>Enter your name</p><input id='name' type="text"/><button   onClick={this.changeState} type="button">Submit</button> 
+              <Welcome data={this.state.data} />   
+               
+                
+           
+                     
+              </div>  
+      );          
+  }}
+
+  export default App; 
